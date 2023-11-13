@@ -46,7 +46,7 @@ class Fighter():
         key = pygame.key.get_pressed()
         
         #can only perform other actions if not currently not attacking
-        if self.attacking == False:
+        if self.attacking == False and self.alive == True:
             #check player 1 controls
             if self.player == 1:
                 #movement
@@ -83,12 +83,12 @@ class Fighter():
                     self.vel_y = -30
                     self.jump = True
                 #attack
-                if key[pygame.K_KP1] or key[pygame.K_KP2]:
+                if key[pygame.K_1] or key[pygame.K_2]:
                     self.attack(surface, target)
                     #determine which attack tyoe was used
-                    if key[pygame.K_KP1]:
+                    if key[pygame.K_1]:
                         self.attack_type = 1
-                    if key[pygame.K_KP2]:
+                    if key[pygame.K_2]:
                         self.attack_type = 2
             
             
